@@ -1,16 +1,21 @@
 package cinema.model;
 
 public class Seat {
+	
 	private int row;
+	
 	private int column;
+	
 	private int price;
-	// Postman reports Server error 500 without "no argument constructor" included here
+
 	public Seat(){}
+	
 	public Seat(int row, int column) {
 		this.row = row;
 		this.column = column;
 		this.price = this.row <= 4 ? 10 : 8;
 	}
+	
 	public int getRow() {
 		return row;
 	}
@@ -29,6 +34,7 @@ public class Seat {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
