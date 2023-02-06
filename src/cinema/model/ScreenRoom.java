@@ -8,12 +8,16 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ScreenRoom {
+	
 	@JsonProperty("total_rows")
     private int totalRows;
+	
     @JsonProperty("total_columns")
 	private int totalColumns;
+	
 	@JsonProperty("available_seats")
 	private List<Seat> availableSeats = new ArrayList<>();
+	
 	@JsonIgnore
     private HashMap<String, Seat> purchasedSeats = new HashMap<>();
     
