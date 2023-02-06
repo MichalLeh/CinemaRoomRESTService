@@ -4,17 +4,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Stats {
+    
     @JsonIgnore
     private int totalRows;
+    
     @JsonIgnore
     private int totalColumns;
+    
     @JsonProperty("current_income")
     private int currentIncome;
+    
     @JsonProperty("number_of_available_seats")
     private int numberOfAvailableSeats;
+    
     @JsonProperty("number_of_purchased_tickets")
     private int numberOfPurchasedTickets;
+    
     public Stats(){}
+    
     public Stats(int totalRows, int totalColumns) {
         this.totalRows = totalRows;
         this.totalColumns = totalColumns;
@@ -22,11 +29,13 @@ public class Stats {
         this.numberOfPurchasedTickets = 0;
         this.currentIncome = 0;
     }
+    
     public void updateStats(int availableSeat, int purchasedTicket, int ticketPrice){
         setNumberOfAvailableSeats(availableSeat);
         setNumberOfPurchasedTickets(purchasedTicket);
         setCurrentIncome(ticketPrice);
     }
+    
     public int getTotalRows() {
         return totalRows;
     }
