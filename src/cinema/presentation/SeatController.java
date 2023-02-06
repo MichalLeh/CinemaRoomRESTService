@@ -15,7 +15,9 @@ import java.util.Map;
 public class SeatController {
 	private final ScreenRoom screenRoom = new ScreenRoom(9, 9);
 	private Stats stats = new Stats(screenRoom.getTotalRows(), screenRoom.getTotalColumns());
+	
 	public SeatController() {}
+	
 	@GetMapping("/seats")
 	public ScreenRoom getSeat(){
 		return screenRoom;
