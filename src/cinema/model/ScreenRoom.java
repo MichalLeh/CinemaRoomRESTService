@@ -55,7 +55,6 @@ public class ScreenRoom {
 	public void getSeat(Seat seat) {
 		this.availableSeats.get(this.availableSeats.indexOf(seat));
 	}
-
 	public HashMap<String, Seat> getPurchasedSeats() {
         return purchasedSeats;
     }
