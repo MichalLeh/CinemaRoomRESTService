@@ -20,6 +20,7 @@ public class SeatController {
 	public ScreenRoom getSeat(){
 		return screenRoom;
 	}
+
 	@PostMapping("/purchase")
 	public synchronized ResponseEntity<?> postSeat(@RequestBody Seat seat) {
 		if ((seat.getRow() >= 1 && seat.getRow() <= 9) && (seat.getColumn() >= 1 && seat.getColumn() <= 9)) {
@@ -39,6 +40,7 @@ public class SeatController {
 			return new ResponseEntity<>(Map.of("error", "The number of a row or a column is out of bounds!"), HttpStatus.BAD_REQUEST);
 		}
 	}
+
 	@PostMapping("/return")
 	public synchronized ResponseEntity<?> postReturn(@RequestBody Ticket ticket){
 		if(screenRoom.getPurchasedSeats().containsKey(ticket.getToken())){
@@ -52,6 +54,7 @@ public class SeatController {
 		}
 		return new ResponseEntity<>(Map.of("error", "Wrong token!"), HttpStatus.BAD_REQUEST);
 	}
+
 	@PostMapping("/stats")
 	public ResponseEntity<?> postStats(@RequestParam(required = false) String password){
 		if (password == null || !password.equals("super_secret")){
