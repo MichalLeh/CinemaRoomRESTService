@@ -46,13 +46,14 @@ public class SeatController {
 	@PostMapping("/return")
 	public synchronized ResponseEntity<?> postReturn(@RequestBody Ticket ticket){
 		if(screenRoom.getPurchasedSeats().containsKey(ticket.getToken())){
-			int ticketPrice = screenRoom.getPurchasedSeats().get(ticket.getToken()).getPrice();
+			Seat returnedTicket = screenRoom.getPurchasedSeats().get(ticket.getToken());
 
-			stats.updateStats(1, -1, -ticketPrice);
-			screenRoom.addAvailableSeat(screenRoom.getPurchasedSeats().get(ticket.getToken()));
+			stats.updateStats(1, -1, -returnedTicket.getPrice());
+			screenRoom.addAvailableSeat(returnedTicket);
+			screenRoom.removeFromPurchasedSeats(ticket.getToken());
 
 			return ResponseEntity.status(HttpStatus.OK)
-					.body(Collections.singletonMap("returned_ticket", screenRoom.getPurchasedSeats().get(ticket.getToken())));
+					.body(Collections.singletonMap("returned_ticket", returnedTicket));
 		}
 		return new ResponseEntity<>(Map.of("error", "Wrong token!"), HttpStatus.BAD_REQUEST);
 	}
