@@ -68,4 +68,7 @@ public class ScreenRoom {
     public void addIntoPurchasedSeats(String token, Seat seat) {
         this.purchasedSeats.putIfAbsent(token, seat);
     }
+	public void removeFromPurchasedSeats(String token) {
+		this.purchasedSeats.remove(token);
+	}
 }
