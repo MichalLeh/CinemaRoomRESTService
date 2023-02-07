@@ -1,6 +1,6 @@
 # Cinema Room REST Service
 
-Simple Spring REST service implementation of [Hyperskill's](https://hyperskill.org/projects/189) project that handles HTTP requests in controllers, creates services and responds with JSON objects.
+Simple Spring Boot REST service implementation of [Hyperskill's](https://hyperskill.org/projects/189) project that handles HTTP requests in controllers, creates services and responds with JSON objects.
 
 REST service can show the available seats, purchase and refund tickets, and display the statistics of the small movie theater. 
 
