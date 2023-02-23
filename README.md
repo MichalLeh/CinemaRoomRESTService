@@ -15,7 +15,6 @@ REST service can show the available seats, purchase and refund tickets, and disp
     ```shell
     cd CinemaRoomRESTService
     ./gradlew build
-    ./gradlew bootRun
     ```
 
 The endpoints can be accessed using a browser or a tool that allows you to send HTTP requests
