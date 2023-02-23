@@ -4,6 +4,30 @@ Simple Spring Boot REST service implementation of [Hyperskill's](https://hypersk
 
 REST service can show the available seats, purchase and refund tickets, and display the statistics of the small movie theater. 
 
+### Processes
+
+- [Seats](#seats)
+- [Post a new recipe](#post-a-new-recipe)
+- [Get a recipe by id](#get-a-recipe-by-id)
+- [Update a recipe](#update-a-recipe)
+- [Delete a recipe](#delete-a-recipe)
+- [Query recipes](#query-recipes)
+
+## API Endpoints
+
+| Endpoint                  | No password | Password |
+|---------------------------|-------------|----------|
+| GET  /seats               | +           | -        |
+| POST /purchase            | +           | -        |
+| POST /return              | +           | -        |
+| POST /stats               | -           | +        |
+
+_'+' means there is no need for password to access that endpoint. '-' means you need a password key with a "super_secret" value as parameter to access that endpoint._
+
+### Examples
+
+#### Seats
+
 **Example 1:** a `GET /seats` *request*
 
 *Response body:*
@@ -21,11 +45,7 @@ REST service can show the available seats, purchase and refund tickets, and disp
          "row":1,
          "column":2
       },
-      {
-         "row":1,
-         "column":3
-      },
-
+      
       ........
 
       {
