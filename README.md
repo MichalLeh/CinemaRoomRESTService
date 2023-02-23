@@ -8,20 +8,13 @@ REST service can show the available seats, purchase and refund tickets, and disp
 
 1. Clone the repository
     ```shell
-    git clone https://github.com/dan-koller/Spring-Recipes
+    git clone [https://github.com/MichalLeh/CinemaRoomRESTService.git]
     ```
 
 2. Setup the environment
     ```shell
     cd Spring-Web-Quiz-Engine
     cp .env.example .env
-    ```
-   Edit the `.env` file to your needs. Since the project uses H2 as a database, you just need to
-   the `H2_DATABASE_URL`, `H2_DATABASE_USERNAME` and `H2_DATABASE_PASSWORD` variables. The default values are:
-    ```shell
-    H2_DATABASE_URL=h2:file:../quizdb
-    H2_DATABASE_USERNAME=sa
-    H2_DATABASE_PASSWORD=
     ```
 
 3. Build and run the project
