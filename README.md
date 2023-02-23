@@ -57,7 +57,6 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
    ]
 }
 ```
-
 #### Purchase a ticket
 
 **Example 2:** a `POST /purchase` *correct request*
@@ -97,7 +96,6 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "error": "The ticket has been already purchased!"
 }
 ```
-
 **Example 2 b:** a `POST /purchase` *request, a wrong row number*
 
 *Request body:*
@@ -171,7 +169,6 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "number_of_purchased_tickets": 0
 }
 ```
-
 ## Stack
 
 - Java 11.0.11
