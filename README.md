@@ -7,8 +7,8 @@ REST service can show the available seats, purchase and refund tickets, and disp
 ### Processes
 
 - [Seats](#seats)
-- [Post a new recipe](#post-a-new-recipe)
-- [Get a recipe by id](#get-a-recipe-by-id)
+- [Purchase a seat](#purchase)
+- [Return a ticket](#return)
 - [Update a recipe](#update-a-recipe)
 - [Delete a recipe](#delete-a-recipe)
 - [Query recipes](#query-recipes)
@@ -59,6 +59,9 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
    ]
 }
 ```
+
+#### Purchase
+
 **Example 2:** a `POST /purchase` *correct request*
 
 *Request body:*
@@ -80,8 +83,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     }
 }
 ```
-
-**Example 3:** a `POST /purchase` *request, the ticket is already booked*
+**Example 2 a:** a `POST /purchase` *request, the ticket is already booked*
 
 *Request body:*
 
@@ -98,7 +100,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 }
 ```
 
-**Example 4:** a `POST /purchase` *request, a wrong row number*
+**Example 2 b:** a `POST /purchase` *request, a wrong row number*
 
 *Request body:*
 
@@ -114,7 +116,9 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "error": "The number of a row or a column is out of bounds!"
 }
 ```
-**Example 5:** a `POST /return` *with the correct token*
+#### Return
+
+**Example 3:** a `POST /return` *with the correct token*
 
 *Request body:*
 
