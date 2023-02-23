@@ -11,14 +11,9 @@ REST service can show the available seats, purchase and refund tickets, and disp
     git clone https://github.com/MichalLeh/CinemaRoomRESTService.git
     ```
 
-2. Setup the environment
+2. Build and run the project
     ```shell
-    cd Spring-Web-Quiz-Engine
-    cp .env.example .env
-    ```
-
-3. Build and run the project
-    ```shell
+    cd CinemaRoomRESTService
     ./gradlew build
     ./gradlew bootRun
     ```
@@ -48,7 +43,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 
 #### Seats
 
-**Example 1:** a `GET /seats` *request*
+`GET /seats` *request*
 
 *Response body:*
 
@@ -81,7 +76,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 ```
 #### Purchase a ticket
 
-**Example 2:** a `POST /purchase` *correct request*
+`POST /purchase` *correct request*
 
 *Request body:*
 
@@ -102,7 +97,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     }
 }
 ```
-**Example 2 a:** a `POST /purchase` *request, the ticket is already booked*
+`POST /purchase` *request, the ticket is already booked*
 
 *Request body:*
 
@@ -118,7 +113,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "error": "The ticket has been already purchased!"
 }
 ```
-**Example 2 b:** a `POST /purchase` *request, a wrong row number*
+`POST /purchase` *request, a wrong row number*
 
 *Request body:*
 
@@ -136,7 +131,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 ```
 #### Return a ticket
 
-**Example 3:** a `POST /return` *with the correct token*
+`POST /return` *with the correct token*
 
 *Request body:*
 
@@ -155,7 +150,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     }
 }
 ```
-**Example 3 a:** a `POST /return` *with an expired token*
+`POST /return` *with an expired token*
 
 *Request body:*
 
@@ -172,7 +167,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 ```
 #### Stats
 
-**Example 4:** a `POST /stats` *request with no or wrong parameter*
+`POST /stats` *request with no or wrong parameter*
 
 *Response body::*
 
@@ -181,7 +176,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "error": "The password is wrong!"
 }
 ```
-**Example 4 a:** a `POST /stats` *request with the correct password*
+`POST /stats` *request with the correct password*
 
 *Response body:*
 ```
@@ -194,5 +189,5 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 ## Stack
 
 - Java 11.0.11
-- Gradle 7.6
+- Gradle 7.3.3
 - Spring Boot 2.7.2
