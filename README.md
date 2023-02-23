@@ -8,7 +8,7 @@ REST service can show the available seats, purchase and refund tickets, and disp
 
 1. Clone the repository
     ```shell
-    git clone [https://github.com/MichalLeh/CinemaRoomRESTService.git]
+    git clone https://github.com/MichalLeh/CinemaRoomRESTService.git
     ```
 
 2. Setup the environment
