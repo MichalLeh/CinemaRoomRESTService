@@ -7,11 +7,9 @@ REST service can show the available seats, purchase and refund tickets, and disp
 ### Processes
 
 - [Seats](#seats)
-- [Purchase a seat](#purchase)
-- [Return a ticket](#return)
-- [Update a recipe](#update-a-recipe)
-- [Delete a recipe](#delete-a-recipe)
-- [Query recipes](#query-recipes)
+- [Purchase a seat](#purchase-a-ticket)
+- [Return a ticket](#return-a-ticket)
+- [Stats](#stats)
 
 ## API Endpoints
 
@@ -60,7 +58,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 }
 ```
 
-#### Purchase
+#### Purchase a ticket
 
 **Example 2:** a `POST /purchase` *correct request*
 
@@ -116,7 +114,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "error": "The number of a row or a column is out of bounds!"
 }
 ```
-#### Return
+#### Return a ticket
 
 **Example 3:** a `POST /return` *with the correct token*
 
@@ -137,7 +135,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     }
 }
 ```
-**Example 6:** a `POST /return` *with an expired token*
+**Example 3 a:** a `POST /return` *with an expired token*
 
 *Request body:*
 
@@ -152,8 +150,9 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "error": "Wrong token!"
 }
 ```
+#### Stats
 
-**Example 7:** a `POST /stats` *request with no or wrong parameter*
+**Example 4:** a `POST /stats` *request with no or wrong parameter*
 
 *Response body::*
 
@@ -162,7 +161,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "error": "The password is wrong!"
 }
 ```
-**Example 8:** a `POST /stats` *request with the correct password*
+**Example 4 a:** a `POST /stats` *request with the correct password*
 
 *Response body:*
 ```
@@ -172,3 +171,9 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "number_of_purchased_tickets": 0
 }
 ```
+
+## Stack
+
+- Java 11.0.11
+- Gradle 7.6
+- Spring Boot 2.7.2
