@@ -2,7 +2,9 @@ package cinema.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+/**
+ * This class represents cinema's statistics. It is also used as response object for the REST API.
+ */
 public class Stats {
     
     @JsonIgnore
@@ -29,7 +31,13 @@ public class Stats {
         this.numberOfPurchasedTickets = 0;
         this.currentIncome = 0;
     }
-    
+        /**
+     * Update cinema's stats.
+     *
+     * @param availableSeat     Updates the number of available seats
+     * @param purchasedTicket   Updates the number of purchased tickets
+     * @param ticketPrice       Updates the ticket price
+     */
     public void updateStats(int availableSeat, int purchasedTicket, int ticketPrice){
         setNumberOfAvailableSeats(availableSeat);
         setNumberOfPurchasedTickets(purchasedTicket);
