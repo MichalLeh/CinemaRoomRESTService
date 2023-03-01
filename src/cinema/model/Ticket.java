@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
 import java.util.UUID;
-
+/**
+ * This class represents a ticket. It is also used as response object for the REST API.
+ */
 public class Ticket {
     
     @JsonUnwrapped
