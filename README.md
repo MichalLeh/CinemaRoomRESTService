@@ -42,6 +42,8 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 
 #### Seats
 
+- The endpoint must respond with the `HTTP OK` status `200` and return information about the rows, columns and available seats in a JSON format.
+
 `GET /seats` *request*
 
 *Response body:*
@@ -76,6 +78,9 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 #### Purchase a ticket
 
 `POST /purchase` *correct request*
+- Endpoint that marks a booked ticket as purchased and should contain the following data:
+    - `row` the row number;
+    - `column` the column number.
 
 *Request body:*
 
@@ -85,6 +90,9 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "column": 3
 }
 ```
+- If the purchase is successful, the response body return row, column, price and token;
+- The ticket price is determined by a row number. If the row number is less or equal to 4, set the price at 10. All other rows cost 8 per seat.
+  
 *Response body:*
 ```
 {
@@ -97,15 +105,8 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 }
 ```
 `POST /purchase` *request, the ticket is already booked*
+- If the seat is taken, respond with `Bad Request` status `400` code and following response body:
 
-*Request body:*
-
-```
-{
-    "row": 2,
-    "column": 3
-}
-```
 *Response body:*
 ```
 {
@@ -113,6 +114,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 }
 ```
 `POST /purchase` *request, a wrong row number*
+- If users pass a wrong row/column number, respond with `Bad Request` status `400` code and following line:
 
 *Request body:*
 
@@ -131,7 +133,9 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 #### Return a ticket
 
 `POST /return` *with the correct token*
-
+- Endpoint will allow customers to refund their tickets;
+- The request should have the `token` feature that identifies the ticket in the request body. Once you have the token, you need to identify the ticket it relates to and mark it as available.
+  
 *Request body:*
 
 ```
@@ -139,6 +143,8 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "token": "e739267a-7031-4eed-a49c-65d8ac11f556"
 }
 ```
+- If the return is successful, respond with the `HTTP OK` status `200` and the following response body:
+ 
 *Response body:*
 ```
 {
@@ -150,7 +156,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 }
 ```
 `POST /return` *with an expired token*
-
+  
 *Request body:*
 
 ```
@@ -158,6 +164,8 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "token": "e739267a-7031-4eed-a49c-65d8ac11f556"
 }
 ```
+- If you cannot identify the ticket by the token, respond with `Bad Request` status `400` code and the following response body:
+
 *Response body:*
 ```
 {
@@ -166,17 +174,12 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 ```
 #### Stats
 
-`POST /stats` *request with no or wrong parameter*
-
-*Response body::*
-
-```
-{
-    "error": "The password is wrong!"
-}
-```
 `POST /stats` *request with the correct password*
-
+- If the URL parameters contain a password key with a "super_secret" value, respond with the `HTTP OK` status `200` and return the movie theatre statistics in following format:
+    - `income` shows the total income of sold tickets.
+    - `available` shows how many seats are available.
+    - `purchased` shows how many tickets were purchased.
+      
 *Response body:*
 ```
 {
@@ -185,6 +188,17 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
     "number_of_purchased_tickets": 0
 }
 ```
+`POST /stats` *request with no or wrong parameter*
+- If the parameters don't contain a password key or a wrong value has been passed, respond with `UNAUTHORIZED` status `401`.
+  
+*Response body::*
+
+```
+{
+    "error": "The password is wrong!"
+}
+```
+
 ## Stack
 
 - Java 11.0.11
