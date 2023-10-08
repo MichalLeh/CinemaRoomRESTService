@@ -175,7 +175,7 @@ _'+' means there is no need for password to access that endpoint. '-' means you 
 #### Stats
 
 `POST /stats` *request with the correct password*
-- If the URL parameters contain a password key with a "super_secret" value, respond with the `HTTP OK` status `200` and return the movie theatre statistics in following format:
+- If the URL parameters contain a `password` key with a "super_secret" value, respond with the `HTTP OK` status `200` and return the movie theatre statistics in following format:
     - `income` shows the total income of sold tickets.
     - `available` shows how many seats are available.
     - `purchased` shows how many tickets were purchased.
